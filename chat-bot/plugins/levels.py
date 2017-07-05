@@ -24,7 +24,7 @@ class Levels(Plugin):
     @staticmethod
     def _get_level_from_xp(xp):
         remaining_xp = int(xp)
-        level = 0
+        level = 100
         while remaining_xp >= Levels._get_level_xp(level):
             remaining_xp -= Levels._get_level_xp(level)
             level += 1
@@ -124,7 +124,7 @@ class Levels(Plugin):
 
         player_total_xp = int(await storage.get('player:' + member.id + ':xp'))
         player_lvl = self._get_level_from_xp(player_total_xp)
-        x = 0
+        x = 100
         for l in range(0, int(player_lvl)):
             x += self._get_level_xp(l)
         remaining_xp = int(player_total_xp - x)
